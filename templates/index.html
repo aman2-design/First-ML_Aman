@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Aman first ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<style>
+body{
+margin: 6;
+padding: 0;
+background-size: cover;
+color: gray;
+background-position: center;
+font-family: sans-serif;
+opacity :200%;
+}
+h1{
+color: white;
+}
+h3{
+color: white;
+}
+h2{
+color: blue;
+}
+</style>
+
+</head> 
+
+
+
+<body  
+background="{{ url_for('static', filename='Heart2.jpg') }}" alt="">
+
+
+ <div class="login">
+ 
+	<h1 >
+	Predict whether person will survive or not (Heart Failure)
+	</h1>
+
+    <form action="{{ url_for('predict')}}"method="post">
+	
+<label for="high_blood_pressure">Choose high_blood_pressure:</label>
+  <select id="high_blood_pressure" name="high_blood_pressure">
+    <option value="0">0</option>
+    <option value="1">1</option>
+	
+</select>
+
+<br>
+<label for="Anaemia">Choose Anaemia:</label>
+  <select id="Anaemia" name="Anaemia">
+    <option value="0">0</option>
+    <option value="1">1</option>
+</select>
+</br>
+
+<br>
+<label for="Age">Age:</label>
+<input type="text" name="age" placeholder="(in years)" required="required" />
+</select>
+</br>
+
+<br>
+<label for="Ejection_fraction">Ejection_fraction:</label>
+<input type="text" name="Ejection_Fraction" placeholder="(in %)" required="required" />
+</select>
+</br>
+
+<br>
+<label for="Serum_Creatinine">Serum_Creatinine:</label>
+<input type="text" name="Serum_Creatinine" placeholder="(mg/dL)" required="required" />
+</select>
+</br>
+
+<br>
+<label for="time">Time:</label>
+<input type="text" name="time" placeholder="(in days)" required="required" />
+</select>
+</br>
+
+        
+<br>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button></br>
+    </form>
+
+   <br>
+   <br>
+   <h2>{{ prediction_text }}</h2>
+
+ </div>
+ 
+<h1 style = "color:red">
+Read this carefully before entry!!!:</h1> 
+<p>
+<h3>High blood pressure</h3>
+0: if person do not have high blood pressure
+<br>1: if person have high blood pressure</br>
+</p>
+<p><h3>
+Anaemia (Decrease of red blood cells or hemoglobin)</h3>
+0: if person is not suffering from anaemia
+<br>1: if person is suffering from anaemia</br>
+</p>
+<p><h3>
+Age</h3>
+Age of the person
+</p>
+<p><h3>
+Ejection_fraction</h3>
+Ejection fraction (EF) refers to how well your left ventricle (or right ventricle) pumps blood with each heart beat.
+Percentage of blood leaving the heart at each contraction (percentage).
+</p>
+<p><h3>
+Serum_Creatinine</h3>
+Creatinine is a breakdown product of creatine phosphate from muscle and protein metabolism. It is released at a constant rate by the body.
+Level of serum creatinine in the blood (mg/dL)
+</p>
+<p><h3>
+Time</h3>
+Follow-up period (days)
+</p>
+
+</body>
+</html>
